@@ -45,6 +45,7 @@ This release closes the following issue:
 
 <details>
 
+-   [`d57ae08`](https://github.com/stdlib-js/stdlib/commit/d57ae087e42493094552ca3ea2a5e6d71bf09c49) - **docs:** fix return annotations and remove extra return variable _(by Philipp Burckhardt)_
 -   [`dbc772f`](https://github.com/stdlib-js/stdlib/commit/dbc772fe67de423b24bebecdd657d09683f793cf) - **fix:** use correct return type in Routine interface and fix descriptions _(by Philipp Burckhardt)_
 -   [`f7509ad`](https://github.com/stdlib-js/stdlib/commit/f7509adb98a5c726e927fe5c0e16a8c4bb949457) - **docs:** fix examples _(by Athan Reines)_
 -   [`a86283f`](https://github.com/stdlib-js/stdlib/commit/a86283f988a980a51500a4d45d60ccd2ba46417c) - **fix:** ensure correct `this` context when creating a new Module instance _(by Philipp Burckhardt)_
