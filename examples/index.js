@@ -33,10 +33,10 @@ function main() {
 	var x = oneTo( N, 'float64' );
 
 	// Perform computation:
-	dapx.ndarray( N, 5.0, x, 1, 0 );
+	var out = dapx.ndarray( N, 5.0, x, 1, 0 );
 
 	// Print the results:
-	console.log( x );
+	console.log( out );
 	// => <Float64Array>[ 6.0, 7.0, 8.0, 9.0, 10.0 ]
 }
 

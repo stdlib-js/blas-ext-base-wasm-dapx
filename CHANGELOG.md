@@ -20,6 +20,7 @@
 
 ### Bug Fixes
 
+-   [`dbc772f`](https://github.com/stdlib-js/stdlib/commit/dbc772fe67de423b24bebecdd657d09683f793cf) - use correct return type in Routine interface and fix descriptions
 -   [`a86283f`](https://github.com/stdlib-js/stdlib/commit/a86283f988a980a51500a4d45d60ccd2ba46417c) - ensure correct `this` context when creating a new Module instance
 
 </section>
@@ -44,6 +45,7 @@ This release closes the following issue:
 
 <details>
 
+-   [`dbc772f`](https://github.com/stdlib-js/stdlib/commit/dbc772fe67de423b24bebecdd657d09683f793cf) - **fix:** use correct return type in Routine interface and fix descriptions _(by Philipp Burckhardt)_
 -   [`f7509ad`](https://github.com/stdlib-js/stdlib/commit/f7509adb98a5c726e927fe5c0e16a8c4bb949457) - **docs:** fix examples _(by Athan Reines)_
 -   [`a86283f`](https://github.com/stdlib-js/stdlib/commit/a86283f988a980a51500a4d45d60ccd2ba46417c) - **fix:** ensure correct `this` context when creating a new Module instance _(by Philipp Burckhardt)_
 -   [`7ee7d36`](https://github.com/stdlib-js/stdlib/commit/7ee7d3670bc523f7353b5bf2d048a144a2c67e01) - **docs:** fix typo _(by Athan Reines)_
