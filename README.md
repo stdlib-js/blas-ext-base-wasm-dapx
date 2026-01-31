@@ -42,7 +42,7 @@ limitations under the License.
 ## Usage
 
 ```javascript
-import dapx from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-base-wasm-dapx@deno/mod.js';
+import dapx from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-base-wasm-dapx@v0.1.0-deno/mod.js';
 ```
 
 #### dapx.main( N, alpha, x, strideX )
@@ -163,7 +163,7 @@ Adds a scalar constant to each element in a double-precision floating-point stri
 import Memory from 'https://cdn.jsdelivr.net/gh/stdlib-js/wasm-memory@deno/mod.js';
 import oneTo from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-one-to@deno/mod.js';
 import zeros from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-zeros@deno/mod.js';
-import dapx from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-base-wasm-dapx@deno/mod.js';
+import dapx from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-base-wasm-dapx@v0.1.0-deno/mod.js';
 
 // Create a new memory instance with an initial size of 10 pages (640KiB) and a maximum size of 100 pages (6.4MiB):
 var mem = new Memory({
@@ -216,7 +216,7 @@ Adds a scalar constant to each element in a double-precision floating-point stri
 import Memory from 'https://cdn.jsdelivr.net/gh/stdlib-js/wasm-memory@deno/mod.js';
 import oneTo from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-one-to@deno/mod.js';
 import zeros from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-zeros@deno/mod.js';
-import dapx from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-base-wasm-dapx@deno/mod.js';
+import dapx from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-base-wasm-dapx@v0.1.0-deno/mod.js';
 
 // Create a new memory instance with an initial size of 10 pages (640KiB) and a maximum size of 100 pages (6.4MiB):
 var mem = new Memory({
@@ -280,7 +280,7 @@ The function has the following additional parameters:
 
 ```javascript
 import discreteUniform from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-array-discrete-uniform@deno/mod.js';
-import dapx from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-base-wasm-dapx@deno/mod.js';
+import dapx from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-base-wasm-dapx@v0.1.0-deno/mod.js';
 
 var x = discreteUniform( 10, -100, 100, {
     'dtype': 'float64'
