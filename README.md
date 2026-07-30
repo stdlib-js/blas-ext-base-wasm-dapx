@@ -35,14 +35,32 @@ limitations under the License.
 
 > Add a scalar constant to each element in a double-precision floating-point strided array.
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/blas-ext-base-wasm-dapx
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-import dapx from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-base-wasm-dapx@esm/index.mjs';
+var dapx = require( '@stdlib/blas-ext-base-wasm-dapx' );
 ```
 
 #### dapx.main( N, alpha, x, strideX )
@@ -50,7 +68,7 @@ import dapx from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-base-wasm-dapx@
 Adds a scalar constant to each element in a double-precision floating-point strided array.
 
 ```javascript
-import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@esm/index.mjs';
+var Float64Array = require( '@stdlib/array-float64' );
 
 var x = new Float64Array( [ -2.0, 1.0, 3.0, -5.0, 4.0, 0.0, -1.0, -3.0 ] );
 
@@ -68,7 +86,7 @@ The function has the following parameters:
 The `N` and stride parameters determine which elements in the strided array are accessed at runtime. For example, to add a constant to every other element:
 
 ```javascript
-import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@esm/index.mjs';
+var Float64Array = require( '@stdlib/array-float64' );
 
 var x = new Float64Array( [ -2.0, 1.0, 3.0, -5.0, 4.0, 0.0, -1.0, -3.0 ] );
 
@@ -79,7 +97,7 @@ dapx.main( 4, 5.0, x, 2 );
 Note that indexing is relative to the first index. To introduce an offset, use [`typed array`][mdn-typed-array] views.
 
 ```javascript
-import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@esm/index.mjs';
+var Float64Array = require( '@stdlib/array-float64' );
 
 // Initial array...
 var x0 = new Float64Array( [ 1.0, -2.0, 3.0, -4.0, 5.0, -6.0 ] );
@@ -97,7 +115,7 @@ dapx.main( 3, 5.0, x1, 2 );
 Adds a scalar constant to each element in a double-precision floating-point strided array using alternative indexing semantics.
 
 ```javascript
-import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@esm/index.mjs';
+var Float64Array = require( '@stdlib/array-float64' );
 
 var x = new Float64Array( [ -2.0, 1.0, 3.0, -5.0, 4.0, 0.0, -1.0, -3.0 ] );
 
@@ -112,19 +130,13 @@ The function has the following additional parameters:
 While [`typed array`][mdn-typed-array] views mandate a view offset based on the underlying buffer, the offset parameter supports indexing semantics based on a starting index. For example, to access only the last three elements:
 
 ```javascript
-import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@esm/index.mjs';
+var Float64Array = require( '@stdlib/array-float64' );
 
 var x = new Float64Array( [ 1.0, -2.0, 3.0, -4.0, 5.0, -6.0 ] );
 
 dapx.ndarray( 3, 5.0, x, 1, x.length-3 );
 // x => <Float64Array>[ 1.0, -2.0, 3.0, 1.0, 10.0, -1.0 ]
 ```
-
-</section>
-
-<!-- /.usage -->
-
-<section class="notes">
 
 * * *
 
@@ -134,10 +146,10 @@ dapx.ndarray( 3, 5.0, x, 1, x.length-3 );
 
 Returns a new WebAssembly [module wrapper][@stdlib/wasm/module-wrapper] instance which uses the provided WebAssembly [memory][@stdlib/wasm/memory] instance as its underlying memory.
 
-<!-- eslint-disable node/no-sync -->
+<!-- eslint-disable n/no-sync -->
 
 ```javascript
-import Memory from 'https://cdn.jsdelivr.net/gh/stdlib-js/wasm-memory@esm/index.mjs';
+var Memory = require( '@stdlib/wasm-memory' );
 
 // Create a new memory instance with an initial size of 10 pages (640KiB) and a maximum size of 100 pages (6.4MiB):
 var mem = new Memory({
@@ -157,13 +169,13 @@ mod.initializeSync();
 
 Adds a scalar constant to each element in a double-precision floating-point strided array.
 
-<!-- eslint-disable node/no-sync -->
+<!-- eslint-disable n/no-sync -->
 
 ```javascript
-import Memory from 'https://cdn.jsdelivr.net/gh/stdlib-js/wasm-memory@esm/index.mjs';
-import oneTo from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-one-to@esm/index.mjs';
-import zeros from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-zeros@esm/index.mjs';
-import dapx from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-base-wasm-dapx@esm/index.mjs';
+var Memory = require( '@stdlib/wasm-memory' );
+var oneTo = require( '@stdlib/array-one-to' );
+var zeros = require( '@stdlib/array-zeros' );
+var dapx = require( '@stdlib/blas-ext-base-wasm-dapx' );
 
 // Create a new memory instance with an initial size of 10 pages (640KiB) and a maximum size of 100 pages (6.4MiB):
 var mem = new Memory({
@@ -210,13 +222,13 @@ The function has the following parameters:
 
 Adds a scalar constant to each element in a double-precision floating-point strided array using alternative indexing semantics.
 
-<!-- eslint-disable node/no-sync -->
+<!-- eslint-disable n/no-sync -->
 
 ```javascript
-import Memory from 'https://cdn.jsdelivr.net/gh/stdlib-js/wasm-memory@esm/index.mjs';
-import oneTo from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-one-to@esm/index.mjs';
-import zeros from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-zeros@esm/index.mjs';
-import dapx from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-base-wasm-dapx@esm/index.mjs';
+var Memory = require( '@stdlib/wasm-memory' );
+var oneTo = require( '@stdlib/array-one-to' );
+var zeros = require( '@stdlib/array-zeros' );
+var dapx = require( '@stdlib/blas-ext-base-wasm-dapx' );
 
 // Create a new memory instance with an initial size of 10 pages (640KiB) and a maximum size of 100 pages (6.4MiB):
 var mem = new Memory({
@@ -266,7 +278,7 @@ The function has the following additional parameters:
 ## Notes
 
 -   If `N <= 0`, both functions return the strided array unchanged.
--   This package implements routines using WebAssembly. When provided arrays which are not allocated on a `dapx` module memory instance, data must be explicitly copied to module memory prior to computation. Data movement may entail a performance cost, and, thus, if you are using arrays external to module memory, you should prefer using [`@stdlib/blas-ext/base/dapx`][@stdlib/blas/ext/base/dapx]. However, if working with arrays which are allocated and explicitly managed on module memory, you can achieve better performance when compared to the pure JavaScript implementations found in [`@stdlib/blas/ext/base/dapx`][@stdlib/blas/ext/base/dapx]. Beware that such performance gains may come at the cost of additional complexity when having to perform manual memory management. Choosing between implementations depends heavily on the particular needs and constraints of your application, with no one choice universally better than the other..
+-   This package implements routines using WebAssembly. When provided arrays which are not allocated on a `dapx` module memory instance, data must be explicitly copied to module memory prior to computation. Data movement may entail a performance cost, and, thus, if you are using arrays external to module memory, you should prefer using [`@stdlib/blas-ext/base/dapx`][@stdlib/blas/ext/base/dapx]. However, if working with arrays which are allocated and explicitly managed on module memory, you can achieve better performance when compared to the pure JavaScript implementations found in [`@stdlib/blas/ext/base/dapx`][@stdlib/blas/ext/base/dapx]. Beware that such performance gains may come at the cost of additional complexity when having to perform manual memory management. Choosing between implementations depends heavily on the particular needs and constraints of your application, with no one choice universally better than the other.
 
 </section>
 
@@ -278,14 +290,9 @@ The function has the following additional parameters:
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="module">
-
-import discreteUniform from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-array-discrete-uniform@esm/index.mjs';
-import dapx from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-base-wasm-dapx@esm/index.mjs';
+```javascript
+var discreteUniform = require( '@stdlib/random-array-discrete-uniform' );
+var dapx = require( '@stdlib/blas-ext-base-wasm-dapx' );
 
 var x = discreteUniform( 10, -100, 100, {
     'dtype': 'float64'
@@ -293,10 +300,6 @@ var x = discreteUniform( 10, -100, 100, {
 console.log( x );
 
 dapx.main( x.length, 5.0, x, 1 );
-
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -320,7 +323,7 @@ dapx.main( x.length, 5.0, x, 1 );
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
@@ -385,13 +388,13 @@ Copyright &copy; 2016-2026. The Stdlib [Authors][stdlib-authors].
 
 [mdn-typed-array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
-[@stdlib/array/float64]: https://github.com/stdlib-js/array-float64/tree/esm
+[@stdlib/array/float64]: https://github.com/stdlib-js/array-float64
 
-[@stdlib/wasm/memory]: https://github.com/stdlib-js/wasm-memory/tree/esm
+[@stdlib/wasm/memory]: https://github.com/stdlib-js/wasm-memory
 
-[@stdlib/wasm/module-wrapper]: https://github.com/stdlib-js/wasm-module-wrapper/tree/esm
+[@stdlib/wasm/module-wrapper]: https://github.com/stdlib-js/wasm-module-wrapper
 
-[@stdlib/blas/ext/base/dapx]: https://github.com/stdlib-js/blas-ext-base-dapx/tree/esm
+[@stdlib/blas/ext/base/dapx]: https://github.com/stdlib-js/blas-ext-base-dapx
 
 </section>
 
