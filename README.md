@@ -35,38 +35,32 @@ limitations under the License.
 
 > Add a scalar constant to each element in a double-precision floating-point strided array.
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/blas-ext-base-wasm-dapx
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
-To use in Observable,
-
 ```javascript
-dapx = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-base-wasm-dapx@umd/browser.js' )
-```
-
-To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
-
-```javascript
-var dapx = require( 'path/to/vendor/umd/blas-ext-base-wasm-dapx/index.js' )
-```
-
-To include the bundle in a webpage,
-
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-base-wasm-dapx@umd/browser.js"></script>
-```
-
-If no recognized module system is present, access bundle contents via the global scope:
-
-```html
-<script type="text/javascript">
-(function () {
-    window.dapx;
-})();
-</script>
+var dapx = require( '@stdlib/blas-ext-base-wasm-dapx' );
 ```
 
 #### dapx.main( N, alpha, x, strideX )
@@ -144,12 +138,6 @@ dapx.ndarray( 3, 5.0, x, 1, x.length-3 );
 // x => <Float64Array>[ 1.0, -2.0, 3.0, 1.0, 10.0, -1.0 ]
 ```
 
-</section>
-
-<!-- /.usage -->
-
-<section class="notes">
-
 * * *
 
 ### Module
@@ -158,7 +146,7 @@ dapx.ndarray( 3, 5.0, x, 1, x.length-3 );
 
 Returns a new WebAssembly [module wrapper][@stdlib/wasm/module-wrapper] instance which uses the provided WebAssembly [memory][@stdlib/wasm/memory] instance as its underlying memory.
 
-<!-- eslint-disable node/no-sync -->
+<!-- eslint-disable n/no-sync -->
 
 ```javascript
 var Memory = require( '@stdlib/wasm-memory' );
@@ -181,7 +169,7 @@ mod.initializeSync();
 
 Adds a scalar constant to each element in a double-precision floating-point strided array.
 
-<!-- eslint-disable node/no-sync -->
+<!-- eslint-disable n/no-sync -->
 
 ```javascript
 var Memory = require( '@stdlib/wasm-memory' );
@@ -234,7 +222,7 @@ The function has the following parameters:
 
 Adds a scalar constant to each element in a double-precision floating-point strided array using alternative indexing semantics.
 
-<!-- eslint-disable node/no-sync -->
+<!-- eslint-disable n/no-sync -->
 
 ```javascript
 var Memory = require( '@stdlib/wasm-memory' );
@@ -290,7 +278,7 @@ The function has the following additional parameters:
 ## Notes
 
 -   If `N <= 0`, both functions return the strided array unchanged.
--   This package implements routines using WebAssembly. When provided arrays which are not allocated on a `dapx` module memory instance, data must be explicitly copied to module memory prior to computation. Data movement may entail a performance cost, and, thus, if you are using arrays external to module memory, you should prefer using [`@stdlib/blas-ext/base/dapx`][@stdlib/blas/ext/base/dapx]. However, if working with arrays which are allocated and explicitly managed on module memory, you can achieve better performance when compared to the pure JavaScript implementations found in [`@stdlib/blas/ext/base/dapx`][@stdlib/blas/ext/base/dapx]. Beware that such performance gains may come at the cost of additional complexity when having to perform manual memory management. Choosing between implementations depends heavily on the particular needs and constraints of your application, with no one choice universally better than the other..
+-   This package implements routines using WebAssembly. When provided arrays which are not allocated on a `dapx` module memory instance, data must be explicitly copied to module memory prior to computation. Data movement may entail a performance cost, and, thus, if you are using arrays external to module memory, you should prefer using [`@stdlib/blas-ext/base/dapx`][@stdlib/blas/ext/base/dapx]. However, if working with arrays which are allocated and explicitly managed on module memory, you can achieve better performance when compared to the pure JavaScript implementations found in [`@stdlib/blas/ext/base/dapx`][@stdlib/blas/ext/base/dapx]. Beware that such performance gains may come at the cost of additional complexity when having to perform manual memory management. Choosing between implementations depends heavily on the particular needs and constraints of your application, with no one choice universally better than the other.
 
 </section>
 
@@ -302,14 +290,9 @@ The function has the following additional parameters:
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-array-discrete-uniform@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-base-wasm-dapx@umd/browser.js"></script>
-<script type="text/javascript">
-(function () {
+```javascript
+var discreteUniform = require( '@stdlib/random-array-discrete-uniform' );
+var dapx = require( '@stdlib/blas-ext-base-wasm-dapx' );
 
 var x = discreteUniform( 10, -100, 100, {
     'dtype': 'float64'
@@ -317,11 +300,6 @@ var x = discreteUniform( 10, -100, 100, {
 console.log( x );
 
 dapx.main( x.length, 5.0, x, 1 );
-
-})();
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -410,13 +388,13 @@ Copyright &copy; 2016-2026. The Stdlib [Authors][stdlib-authors].
 
 [mdn-typed-array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
-[@stdlib/array/float64]: https://github.com/stdlib-js/array-float64/tree/umd
+[@stdlib/array/float64]: https://github.com/stdlib-js/array-float64
 
-[@stdlib/wasm/memory]: https://github.com/stdlib-js/wasm-memory/tree/umd
+[@stdlib/wasm/memory]: https://github.com/stdlib-js/wasm-memory
 
-[@stdlib/wasm/module-wrapper]: https://github.com/stdlib-js/wasm-module-wrapper/tree/umd
+[@stdlib/wasm/module-wrapper]: https://github.com/stdlib-js/wasm-module-wrapper
 
-[@stdlib/blas/ext/base/dapx]: https://github.com/stdlib-js/blas-ext-base-dapx/tree/umd
+[@stdlib/blas/ext/base/dapx]: https://github.com/stdlib-js/blas-ext-base-dapx
 
 </section>
 
